@@ -20,9 +20,9 @@ def read_users():
 def add_user(name, email):
     users = read_users()
     users.append([name, email])
-    with open(CSV_FILE, mode='a', newline='', encoding='utf-8') as csvfile:
+    with open(CSV_FILE, 'a', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(users)
+        writer.writerows(users)
 
 # ruta de inicio usando decorador
 @app.route('/')
