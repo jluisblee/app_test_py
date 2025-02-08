@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Se utiliza jinja2 para cargar los estilos-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+
+  <title>Mi Web App</title>
+</head>
+<body>
+  
+  <h1>Bienvenido a mi aplicación</h1>
+  <a href="{{ url_for('about') }}">A cerca de nosotros</a>
+  <p>Esta es una aplicación web sencilla.</p>
+  <h2>Usuarios registrados:</h2>
+  
+  <ul>
+    <!-- Se utiliza jinja2 para cargar los usuarios -->
+    {% for user in users %}
+    <li>{{ user[0] }} - {{ user[1] }}</li>
+    {% endfor %}
+    
+  </ul>
+  
+  <a href="{{ url_for('register') }}">Registrar nuevo usuario</a>
+
+</body>
+</html>
